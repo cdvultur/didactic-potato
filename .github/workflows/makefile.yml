@@ -14,7 +14,7 @@ on:
 
 jobs:
   build:
-    if: github.event.review.state == 'approved'
+    if: ${{ github.event.label.name == 'lgtm' }}
     runs-on: ubuntu-22.04
     env:
       SHELL: /bin/bash
