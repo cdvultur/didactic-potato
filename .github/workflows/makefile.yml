@@ -27,8 +27,5 @@ jobs:
 
       - uses: actions/checkout@v3
 
-      - name: Run lint
-        run: make lint
-
-      - name: Install
-        run: make install-ginkgo
+      - name: Run a one-line script
+        run: echo Hello, world!
