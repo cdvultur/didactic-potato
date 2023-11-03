@@ -14,12 +14,19 @@ on:
 
 jobs:
   build:
-    if: ${{ github.event.label.name == 'lgtm' }}
+    # if: ${{ github.event.label.name == 'lgtm' }}
     runs-on: ubuntu-22.04
     env:
       SHELL: /bin/bash
 
     steps:
+      - run: |
+          if [[ "${{ github.event.label.name }}" == *'lgtm'* ]]; then
+            echo "LGTM label is applied. Starting the build..."
+          else
+            echo "LGTM label is not applied. Skipping the build."
+            exit 1
+          fi
       - name: Set up Go 1.19
         uses: actions/setup-go@v3
         with:
