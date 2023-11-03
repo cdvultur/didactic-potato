@@ -20,6 +20,7 @@ jobs:
     steps:
       - name: Check if LGTM label is applied
         run: |
+          echo "${{ github.event.pull_request.labels }}"
           # Check if the "lgtm" label is among the labels for the current pull request
           if [[ "${{ github.event.pull_request.labels }}" == *'lgtm'* ]]; then
             echo "LGTM label is applied. Starting the build..."
