@@ -11,5 +11,6 @@ jobs:
       - uses: actions-ecosystem/action-remove-labels@v1.3.0
         with:
           labels: |
+            bug
             lgtm
           github_token: "${{ secrets.GITHUB_TOKEN }}"
