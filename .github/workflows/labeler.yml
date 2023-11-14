@@ -1,13 +1,17 @@
-name: Remove LGTM Label
+name: Needs review labeler
 
-on: 
-  push
-
+on:
+  pull_request:
+    branches: [main]
+    
 jobs:
-  remove_labels:
+  add_label:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      - uses: actions-ecosystem/action-remove-labels@v1.3.0
-        with: 
-          labels: 'lgtm'
+      - name: checkout
+        uses: actions/checkout@v2
+      
+      - name: add hold/needs-review label
+        uses: actions-ecosystem/action-add-labels@v1
+        with:
+          labels: hold/needs-review
