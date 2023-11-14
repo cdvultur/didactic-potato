@@ -1,7 +1,6 @@
 name: Remove Labels (workflow)
 
-on:
-  push:
+on: [push]
 
 jobs:
   remove_labels:
