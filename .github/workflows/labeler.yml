@@ -3,14 +3,16 @@ name: Remove Labels (workflow)
 on:
   push:
 
+  issue_comment:
+
 jobs:
   remove_labels:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
       - uses: actions-ecosystem/action-remove-labels@v1.3.0
+        if: ${{ startsWith(github.event.comment.body, '/remove-labels') }}
         with:
           labels: |
             bug
             lgtm
-          github_token: "${{ secrets.GITHUB_TOKEN }}"
