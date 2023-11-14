@@ -1,6 +1,7 @@
-name: Remove Labels (workflow)
+name: Remove LGTM Label
 
-on: [push]
+on: 
+  push
 
 jobs:
   remove_labels:
@@ -8,7 +9,5 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - uses: actions-ecosystem/action-remove-labels@v1.3.0
-        with:
-          labels: |
-            bug
-            lgtm
+        with: 
+          labels: 'lgtm'
